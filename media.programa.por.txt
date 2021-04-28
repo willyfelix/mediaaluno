@@ -3,78 +3,55 @@ programa
 	funcao inicio ()
 	{
 		cadeia aluno1, aluno2, aluno3
-		real notalu1,notaalu1, notalu2, notaalu2, notalu3, notaalu3, mediafinal1, mediafinal2, mediafinal3
-
-		escreva("Olá, digite o nome do primeiro aluno: ")
+		real mediafinal1, mediafinal2, mediafinal3
+        
+        // chamando funcao escreva para aluno digitar o nome
+		escreva("Oi, digite o nome do primeiro aluno: ")
 		leia(aluno1)
-	
-		escreva("\nDiga a primeira nota: ")
-		leia(notalu1)
-		
-		escreva("Diga a segunda nota: ")
-		leia(notaalu1)
-		
-		mediafinal1 = (notalu1+notaalu1) / 2
-		
+		mediafinal1 = calcMed()
 		limpa()
 		
 		escreva("Agora, digite o nome do próximo aluno: ")
 		leia(aluno2)
-		
-		escreva("\nDiga a primeira nota: ")
-	    leia (notalu2)
-		
-		escreva("Diga a segunda nota: ")
-		leia (notaalu2)
-		
-		mediafinal2= (notalu2+notaalu2) / 2
-		
+		mediafinal2= calcularMedia()
 		limpa()
 		
 		escreva("Por fim, o nome do último aluno: ")
 		leia(aluno3)
+		mediafinal3= calcularMedia()
+		limpa()
 		
+        escreveMedia(mediafinal1, aluno1)
+        escreveMedia(mediafinal2, aluno2)
+        escreveMedia(mediafinal3, aluno3)
+	}
+	
+	funcao escreveMedia(real media, cadeia aluno) {
+	    
+        se(media >= 7)
+		{
+			escreva(aluno, ", a média foi ", media, ", aprovado!")
+		}
+		senao
+		{
+			escreva(aluno, ", a média foi ", media, ", reprovado!")
+		}
+		escreva("\n")
+	    
+	}
+	
+	// funcao para calcular media quando o usuario escrever nota 1 e nota 2
+	funcao real calcularMedia () {
+	    real nota1, nota2, media
+	    
 		escreva("\nDiga a primeira nota: ")
-		leia(notalu3)
+		leia(nota1)
 		
 		escreva("Diga a segunda nota: ")
-		leia(notaalu3)
-
-		mediafinal3= (notalu3+notaalu3) / 2
+		leia(nota2)
 		
-		limpa()
-	
-		se(mediafinal1 >= 7)
-		{
-			escreva(aluno1, ", a média foi ", mediafinal1, ", aprovado!")
-		}
-		se(mediafinal1 < 7)
-		{
-			escreva(aluno1, ",a média foi ", mediafinal1, ", reprovado!")
-		}
-		
-		escreva("\n")
-
-        se(mediafinal2 >= 7)
-		{
-			escreva(aluno2, ", a média foi ", mediafinal2, ", aprovado!")
-		}
-		se(mediafinal2 < 7)
-		{
-			escreva(aluno2, ", a média foi ", mediafinal2, ", reprovado!")
-		}
-		
-		escreva("\n")
-		
-        se(mediafinal3 >= 7)
-		{
-			escreva(aluno3, ", a média foi ", mediafinal3, ", aprovado!")
-		}
-		se(mediafinal3 < 7)
-		{
-			escreva(aluno3, ", a média foi ", mediafinal3, ", reprovado!")
-		}
-		escreva("\n")
+		media = (nota1+nota2) / 2
+		retorne media
 	}
 	
 }
